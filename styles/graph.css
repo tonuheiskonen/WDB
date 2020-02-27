@@ -1,0 +1,165 @@
+wdb-requests-graph {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  margin: 16px calc(-50vw + 316px);
+}
+
+@media screen and (max-width: 632px) {
+  wdb-requests-graph {
+    margin: 16px 0 0;
+  }
+}
+
+wdb-request-box {
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  height: 38px;
+  width: 0;
+  white-space: nowrap;
+  transition: all 500ms ease-out;
+}
+
+wdb-request-box::after {
+  padding: 0 0 0 16px;
+  line-height: 38px;
+  content: attr(label);
+  color: var(--date-color, rgb(160, 160, 160));
+}
+
+wdb-start-box[completed]::before {
+  position: absolute;
+  right: 16px;
+  content: 'VALMIS';
+  color: #608b4e;
+}
+
+wdb-request-box:first-of-type {
+  margin-top: 8px;
+}
+
+wdb-order-box {
+  min-width: 0;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 30px;
+  margin: 4px 0;
+  margin-right: -1px;
+  border: 1px solid;
+  border-color: rgb(160, 160, 160);
+  transition: all 500ms ease-out;
+}
+
+wdb-order-box[completed] {
+  background: rgba(160, 160, 160, 0.5);
+}
+
+/*
+wdb-order-box:first-of-type {
+    border-left: 1px solid;
+    border-color: rgb(160, 160, 160);
+}
+
+
+wdb-order-box:last-of-type {
+    border-right: 1px solid;
+    border-color: rgb(160, 160, 160);
+}
+*/
+
+wdb-start-box {
+  text-align: right;
+  color: #d7ba7d;
+  box-sizing: border-box;
+  display: inline-block;
+  line-height: 38px;
+  border-color: rgb(36, 106, 164);
+  min-width: 0;
+  transition: all 500ms ease-out;
+}
+
+.delete wdb-order-box {
+  border-color: red;
+}
+
+.delete wdb-start-box {
+  color: red;
+}
+
+wdb-grid {
+  display: flex;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  box-sizing: border-box;
+  z-index: 9;
+}
+
+wdb-date {
+  position: relative;
+  min-width: 40px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 12px;
+  line-height: 38px;
+  border-left: 1px solid #1e1e1e;
+  color: rgb(160, 160, 160);
+  background: rgb(56, 80, 45);
+  cursor: default;
+  transition: all 500ms ease-out;
+  /* margin-bottom: 8px; */
+  /*z-index: 9;*/
+}
+
+wdb-date::after {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 100%;
+  width: 41px;
+  height: 12px;
+  background: #1e1e1e;
+}
+
+.weekend {
+  background: #2e2e2e;
+  color: rgb(100, 100, 100);
+}
+
+.holiday {
+  color: #d7ba7d;
+  background: rgb(139, 65, 36);
+}
+
+wdb-now {
+  box-sizing: border-box;
+  display: flex;
+  position: absolute;
+  left: -40px;
+  width: 40px;
+  top: 50px;
+  bottom: 4px;
+  border-left: 1px solid #1e1e1e;
+  /*box-shadow: 0 0 64px -16px rgb(49, 143, 221) inset;*/
+  background: rgba(36, 106, 164, 0.25);
+  transition: all 500ms ease-out;
+  opacity: 1;
+  z-index: -9;
+}
+
+wdb-request-box wdb-text {
+  color: #d7ba7d;
+  line-height: 38px;
+  margin: 0 8px;
+}
+
+wdb-request-box::before {
+  position: absolute;
+  right: var(--right, 16px);
+  line-height: 38px;
+  color: #d7ba7d;
+  content: attr(number);
+}

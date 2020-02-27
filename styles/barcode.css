@@ -1,0 +1,29 @@
+wdb-order svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 1;
+}
+
+@media screen {
+  svg {
+    display: none;
+  }
+  #caption {
+    display: none;
+  }
+}
+
+@media print {
+  wdb-menu {
+    display: none;
+  }
+  wdb-order:not(.full) {
+    display: none;
+  }
+  wdb-order {
+    margin-top: 32px;
+    overflow: hidden;
+    --text-color: #000000;
+  }
+}

@@ -1,0 +1,36 @@
+wdb-menu {
+  color: rgb(160, 160, 160);
+  display: flex;
+  height: 50px;
+  min-width: 632px;
+  background: #0e0e0e;
+}
+
+wdb-menu * {
+  box-sizing: border-box;
+  padding: 8px 16px;
+}
+
+wdb-menu .move-right {
+  margin-left: auto;
+}
+
+wdb-menu a {
+  height: 100%;
+  line-height: 60px;
+  padding: 0 16px;
+  border-color: rgb(36, 106, 164);
+  cursor: pointer;
+  transition: all 500ms ease-out;
+}
+
+wdb-menu a:hover {
+  color: rgb(36, 106, 164);
+  background: #1e1e1e;
+}
+
+wdb-menu a.selected {
+  background: #1e1e1e;
+  color: #d7ba7d;
+  border-bottom: 4px solid rgb(36, 106, 164);
+}

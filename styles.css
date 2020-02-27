@@ -1,0 +1,322 @@
+@import './styles/menu.css';
+@import './styles/sign-in.css';
+@import './styles/workspace.css';
+@import './styles/graph.css';
+@import './styles/barcode.css';
+@import './dragula/dragula.css';
+
+/**/
+
+@font-face {
+  font-family: barcode;
+  /*src: url(../styles/fonts/IDAutomationHC39M.woff);*/
+  src: url(../styles/fonts/LibreBarcode128Text-Regular.woff2);
+}
+
+@media only screen {
+  body {
+    margin: 0;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    font-family: sans-serif;
+    overflow: hidden;
+  }
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+  transition: all 500ms ease-out;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(160, 160, 160, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(160, 160, 160, 0.75);
+}
+
+hr {
+  width: 90%;
+  border: none;
+  border-bottom: 1px solid #a5a5a5;
+}
+
+p {
+  margin: 20px 0;
+}
+
+wdb-app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+wdb-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  width: 600px;
+  margin: auto;
+  padding: 0 16px 16px 16px;
+}
+
+@media only screen {
+  .collection {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: calc(100vh - 166px);
+  }
+}
+
+.document {
+  max-height: 0;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  transition: all 500ms ease-out;
+  border-color: rgb(36, 106, 164);
+}
+
+.full {
+  max-height: 160px;
+  padding: 8px 0;
+}
+
+.filtered {
+  max-height: 0;
+  padding: 0;
+}
+
+.document {
+  position: relative;
+  overflow: hidden;
+}
+
+.document[hidden] {
+  display: none;
+}
+
+@media print {
+  wdb-order {
+    page-break-inside: avoid;
+  }
+  wdb-content {
+    width: 100%;
+    margin: auto;
+  }
+  wdb-tools {
+    display: none;
+  }
+  wdb-order::after {
+    display: block;
+    color: black;
+    opacity: 1;
+  }
+  .danger::before {
+    display: none;
+  }
+}
+
+wdb-sub-order.completed::after {
+  position: absolute;
+  right: 16px;
+  content: 'VALMIS';
+  color: rgb(96, 139, 78);
+}
+
+[row] {
+  display: flex;
+}
+
+[row] * + * {
+  padding-left: 4px;
+}
+
+.edit {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+@media only screen {
+  .document:hover {
+    padding: 8px 16px;
+    background: #2e2e2e;
+    border-left: 4px solid rgb(36, 106, 164);
+  }
+}
+
+button.hidden {
+  position: absolute;
+  right: 16px;
+}
+
+button[disabled] {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+wdb-tools input {
+  flex: 1;
+  padding: 16px 8px 16px 40px;
+  background: #2e2e2e url(styles/images/search-blur.png) no-repeat 8px center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: all 500ms ease-out;
+}
+
+wdb-tools input:focus {
+  background: #2e2e2e url(styles/images/search.png) no-repeat 8px center;
+}
+
+wdb-tools button:first-child {
+  margin-left: auto;
+}
+
+wdb-tools * + * {
+  margin-left: 8px;
+}
+
+wdb-context-menu {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+  border-radius: 4px;
+  background: #d4d4d4;
+  color: #1e1e1e;
+  opacity: 0;
+  z-index: 9;
+  transition: all 500ms ease-out;
+}
+
+wdb-context-menu a {
+  width: 124px;
+  padding: 4px 16px;
+  color: rgb(36, 106, 164);
+  cursor: pointer;
+  transition: all 500ms ease-out;
+}
+
+wdb-context-menu a.gray {
+  color: inherit;
+  --a-hover: none;
+}
+
+wdb-context-menu a:hover {
+  background: var(--a-hover, #a5a5a5);
+}
+
+.hidden {
+  display: none;
+}
+
+wdb-data-menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+wdb-data-menu a {
+  padding: 16px 0;
+  border-color: #d7ba7d;
+  cursor: pointer;
+  transition: all 500ms ease-out;
+}
+
+wdb-data-menu a:hover {
+  padding-left: 16px;
+  background: #2e2e2e;
+  border-left: 4px solid #d7ba7d;
+}
+
+.danger::before {
+  position: absolute;
+  right: 16px;
+  color: #d86639;
+  content: 'HILINEB';
+}
+
+option {
+  background: #1e1e1e;
+  color: #d4d4d4;
+}
+
+a[disabled] {
+  color: #4e4e4e;
+  pointer-events: none;
+}
+
+wdb-text,
+wdb-lookup {
+  color: var(--text-color, inherit);
+}
+
+@media screen {
+  .yellow {
+    --text-color: #d7ba7d;
+  }
+  .green {
+    --text-color: #608b4e;
+  }
+  .blue {
+    --text-color: #569cd6;
+  }
+  label {
+    color: #d4d4d4;
+  }
+}
+
+[notified]::after {
+  content: attr(notified);
+  position: absolute;
+  color: #569cd6;
+  right: 16px;
+  bottom: 24px;
+}
+
+[notified]::before {
+  position: absolute;
+  right: 16px;
+  color: #608b4e;
+  content: 'VALMIS';
+}
+
+wdb-ver {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  opacity: 0.25;
+  z-index: -99;
+}
+
+label span {
+  color: #d7ba7d;
+  opacity: 1;
+}
+
+wdb-message-notifier {
+  display: none;
+  position: absolute;
+  top: 36px;
+  right: 16px;
+  height: 18px;
+  width: 18px;
+  background: url(/styles/images/notes-icon.svg);
+}
+
+wdb-message-notifier svg {
+  color: wheat;
+}
+
+[message] wdb-message-notifier {
+  display: block;
+}

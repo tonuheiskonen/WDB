@@ -1,0 +1,47 @@
+wdb-progress {
+  min-height: 6px;
+  margin: 8px 0 0 0;
+  display: flex;
+  box-sizing: border-box;
+}
+
+wdb-progress[relative] {
+  flex: 1;
+}
+
+wdb-meter {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+wdb-meter[completed] {
+  background: rgb(96, 139, 78);
+  /* box-shadow: 0 0 4px #608b4e; */
+}
+
+wdb-meter.danger {
+  background: #d6814f;
+  /* box-shadow: 0 0 4px #d6814f; */
+}
+
+wdb-progress[empty] {
+  border: 1px solid #2e2e2e;
+  background: #1e1e1e;
+}
+
+.document:hover wdb-progress[empty] {
+  border: 1px solid #1e1e1e;
+}
+
+.danger p {
+  color: #d6814f;
+}
+
+wdb-logo {
+  position: fixed;
+  bottom: 140px;
+  left: -140px;
+  font-size: 200px;
+  opacity: 0.05;
+  z-index: -99;
+  transform: rotateZ(-90deg);
+}

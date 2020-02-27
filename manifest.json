@@ -1,0 +1,14 @@
+{
+    "name": "Wactory Application",
+    "short_name": "WacApp",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#2e2e2e",
+    "theme_color": "#2e2e2e",
+    "description": "Wactory tootmise planeerimine.",
+    "icons": [{
+        "src": "icon.png",
+        "sizes": "144x144",
+        "type": "image/png"
+    }]
+}
